@@ -1,13 +1,10 @@
 #include<iostream>
 #include<iomanip>
-#include<fstream>
 using namespace std;
 inline void mainMenu();
 inline void chooseOption();
 inline void setBookTitle();
 inline void setMemberTitle();
-fstream myFile;
-myFile.open("D:libraryManagementSystem.txt",iso_base::app|iso_base::in|iso_base::ate);
 class Library
 {
 	private:
@@ -96,7 +93,6 @@ class Book : public Library
 				while(temp!=NULL)
 				{
 	                cout<<setw(20)<<temp->srNo<<setw(20)<<temp->bookId<<setw(20)<<temp->bookName<<setw(20)<<temp->bookAuthor<<setw(20)<<temp->stock<<endl;
-	                myFile<<setw(20)<<temp->srNo<<setw(20)<<temp->bookId<<setw(20)<<temp->bookName<<setw(20)<<temp->bookAuthor<<setw(20)<<temp->stock<<endl;
 					temp=temp->next;
 				}
 			}
@@ -170,7 +166,6 @@ class Member : public Library
 				while(temp!=NULL)
 				{
 					cout<<setw(20)<<temp->srNo<<setw(20)<<temp->memberId<<setw(20)<<temp->memberName<<setw(20)<<temp->phNo<<endl;
-				    myFile<<setw(20)<<temp->srNo<<setw(20)<<temp->memberId<<setw(20)<<temp->memberName<<setw(20)<<temp->phNo<<endl;
 					temp=temp->next;
 				}
 			}
@@ -204,12 +199,10 @@ void chooseOption()
 void setBookTitle()
 {
 	cout<<"\n\n\n"<<setw(20)<<"Serial Number"<<setw(20)<<"Book ID"<<setw(20)<<"Book Name"<<setw(20)<<"Author"<<setw(20)<<"Stock"<<"\n\n\n";
-	myFile<<"\n\n\n"<<setw(20)<<"Serial Number"<<setw(20)<<"Book ID"<<setw(20)<<"Book Name"<<setw(20)<<"Author"<<setw(20)<<"Stock"<<"\n\n\n";
 }
 void setMemberTitle()
 {
 	cout<<"\n\n\n"<<setw(20)<<"Serial Number"<<setw(20)<<"Member ID"<<setw(20)<<"Member Name"<<setw(20)<<"Phone Number"<<"\n\n\n";
-	myFile<<"\n\n\n"<<setw(20)<<"Serial Number"<<setw(20)<<"Member ID"<<setw(20)<<"Member Name"<<setw(20)<<"Phone Number"<<"\n\n\n";
 }
 int main()
 {
